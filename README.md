@@ -88,3 +88,88 @@ npx tsc
 17
 mkdir -p ./src/routes/index
 touch ./src/routes/index/indexController.ts
+18
+mkdir -p ./src/interfaces
+vi ./src/interfaces/Controller.ts
+19
+import type { Router } from 'express';
+
+export interface Controller {
+  path: string;
+  router: Router;
+}
+20
+vi ./src/routes/index/indexController
+21
+import type { Controller } from '../../interfaces/Controller';
+import type { Request, Response, NextFunction } from 'express';
+import { Router } from 'express';
+
+class IndexController implements Controller {
+  public path = '/';
+  public router = Router();
+
+  constructor() {
+    this.initRoutes();
+  }
+
+  private initRoutes() {
+    this.router.get(`${this.path}`, this.indexPage);
+  }
+
+  private indexPage(req: Request, res: Response, next: NextFunction) {
+    return res.send('index route!');
+  }
+}
+
+export default IndexController;
+22
+vi ./src/app.ts
+23 import express from 'express';
+import type { Application } from 'express';
+import type { Server } from 'http';
+import type { Controller } from './interfaces/Controller';
+
+class App {
+  public app: Application;
+  private server: Server;
+
+  constructor(controllers: Controller[], port: number) {
+    this.app = express();
+    this.initRoutes(controllers);
+    this.server = this.listen(port);
+  }
+
+  private initRoutes(controllers: Controller[]) {
+    controllers.forEach((controller: Controller) => {
+      this.app.use('/', controller.router);
+    });
+  }
+
+  private listen(port: number) {
+    this.server = this.app.listen(port, () => {
+      console.log(`App listening on port: ${port}`);
+    });
+
+    return this.server;
+  }
+
+}
+
+export default App;
+24
+vi ./src/index.ts
+25
+import IndexController from './routes/index/indexController';
+import App from './app';
+
+new App(
+  [
+    new IndexController()
+  ],
+  3000
+);
+26
+npx tsc && node ./dist/index.js
+27
+http://localhost:3000
