@@ -99,7 +99,7 @@ export interface Controller {
   router: Router;
 }
 20
-vi ./src/routes/index/indexController
+vi ./src/routes/index/indexController.ts
 21
 import type { Controller } from '../../interfaces/Controller';
 import type { Request, Response, NextFunction } from 'express';
