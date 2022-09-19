@@ -159,7 +159,7 @@ class App {
 export default App;
 24
 vi ./src/index.ts
-25
+25 (overwrite with below)
 import IndexController from './routes/index/indexController';
 import App from './app';
 
@@ -173,3 +173,18 @@ new App(
 npx tsc && node ./dist/index.js
 27
 http://localhost:3000
+
+
+28
+cd ..
+29
+git clone https://github.com/snyk/snyk-apps-demo.git
+30
+cd snyk-apps-demo
+npm install
+31
+npm run create-app -- --authToken=<token> --orgId=<orgid> --scopes=org.read org.project.read org.report.read org.project.jira.issue.read org.project.ignore.read --name=<appname>
+32
+npm run build
+33
+npm run dev
