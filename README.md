@@ -160,7 +160,7 @@ export default App;
 24
 vi ./src/index.ts
 25
-import IndexController from './routes/index/indexController';
+import IndexController from './routes/index/indexController.ts';
 import App from './app';
 
 new App(
