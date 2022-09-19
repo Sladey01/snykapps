@@ -37,8 +37,8 @@ vi ./src/index.ts
 9
 const world = 'world';
 
-export function hello(world: string = world): string {
-  return `Hello ${world}! `;
+export function hello(who: string = world): string {
+  return `Hello ${who}! `;
 }
 10
 npx tsc
