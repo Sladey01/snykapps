@@ -3,12 +3,14 @@ To begin, create a directory to house the project somewhere on your device. From
 
 1
 
-'''
+```
 mkdir my-snyk-app
-'''
+```
 
 2 
+```
 cd my-snyk-app
+```
 3 
 npm init
 4 
