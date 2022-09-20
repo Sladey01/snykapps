@@ -11,13 +11,22 @@ mkdir my-snyk-app
 ```
 cd my-snyk-app
 ```
-3 
+
+3 (accept default values)
+```
 npm init
+```
 4 
+```
 npm install typescript --save-dev
+```
 5 
+```
 vi tsconfig.json
-6 
+```
+
+6
+```
 {
   "compilerOptions": {
     "target": "es6",
@@ -36,36 +45,55 @@ vi tsconfig.json
     "./dist"
   ]
 }
+```
 7 
+```
 mkdir ./dist
 mkdir ./src
+```
 8 
+```
 vi ./src/index.ts
+```
+
 9
+```
 const world = 'world';
 
 export function hello(who: string = world): string {
   return `Hello ${who}! `;
 }
+```
 10
+```
 npx tsc
+```
 11
+```
 ls
+```
 12
+```
 npm install --save \
   express \
   express-rate-limit \
   express-session \
   http
+```
 13
+```
 npm install --save-dev \
   @types/express \
   @types/express-rate-limit \
   @types/express-session \
   @types/node
+```
 14
+```
 vi ./src/app.ts
+```
 15
+```
 import express from 'express';
 import type { Application } from 'express';
 import type { Server } from 'http';
@@ -90,24 +118,36 @@ class App {
 }
 
 export default App;
+```
 16
+```
 npx tsc
+```
 17
+```
 mkdir -p ./src/routes/index
 touch ./src/routes/index/indexController.ts
+```
 18
+```
 mkdir -p ./src/interfaces
 vi ./src/interfaces/Controller.ts
+```
 19
+```
 import type { Router } from 'express';
 
 export interface Controller {
   path: string;
   router: Router;
 }
+```
 20
+```
 vi ./src/routes/index/indexController.ts
+```
 21
+```
 import type { Controller } from '../../interfaces/Controller';
 import type { Request, Response, NextFunction } from 'express';
 import { Router } from 'express';
@@ -130,9 +170,14 @@ class IndexController implements Controller {
 }
 
 export default IndexController;
+```
 22
+```
 vi ./src/app.ts
-23 import express from 'express';
+```
+23
+```
+import express from 'express';
 import type { Application } from 'express';
 import type { Server } from 'http';
 import type { Controller } from './interfaces/Controller';
@@ -164,9 +209,13 @@ class App {
 }
 
 export default App;
+```
 24
+```
 vi ./src/index.ts
+```
 25 (overwrite with below)
+```
 import IndexController from './routes/index/indexController';
 import App from './app';
 
@@ -176,22 +225,37 @@ new App(
   ],
   3000
 );
+```
 26
+```
 npx tsc && node ./dist/index.js
+```
 27
+```
 http://localhost:3000
+```
 
 
 28
 cd ..
 29
+```
 git clone https://github.com/snyk/snyk-apps-demo.git
+```
 30
+```
 cd snyk-apps-demo
 npm install
+```
 31
+```
 npm run create-app -- --authToken=<token> --orgId=<orgid> --scopes=org.read org.project.read org.report.read org.project.jira.issue.read org.project.ignore.read --name=<appname>
+```
 32
+```
 npm run build
+```
 33
+```
 npm run dev
+```
