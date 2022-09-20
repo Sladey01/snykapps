@@ -214,7 +214,7 @@ export default App;
 ```
 vi ./src/index.ts
 ```
-25 (overwrite with below)
+25 (overwrite with below, dd is the command in vi to delete a line)
 ```
 import IndexController from './routes/index/indexController';
 import App from './app';
