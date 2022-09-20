@@ -1,7 +1,12 @@
 # snykapps
 To begin, create a directory to house the project somewhere on your device. From within the newly created directory, we'll initialize a package.json manifest for our application to keep track of our dependencies and ensure our project is portable:
-1 
+
+1
+
+'''
 mkdir my-snyk-app
+'''
+
 2 
 cd my-snyk-app
 3 
