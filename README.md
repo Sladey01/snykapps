@@ -171,11 +171,11 @@ class IndexController implements Controller {
 
 export default IndexController;
 ```
-22
+22 
 ```
 vi ./src/app.ts
 ```
-23
+23 (overwrite with below)
 ```
 import express from 'express';
 import type { Application } from 'express';
