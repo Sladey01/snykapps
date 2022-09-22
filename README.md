@@ -173,7 +173,7 @@ class IndexController implements Controller {
 
 export default IndexController;
 ```
-22 
+22 (overwrite with below, dd is the command in vi to delete a line)
 ```
 vi ./src/app.ts
 ```
