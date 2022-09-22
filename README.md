@@ -131,7 +131,9 @@ touch ./src/routes/index/indexController.ts
 18
 ```
 mkdir -p ./src/interfaces
+touch ./src/interfaces/Controller.ts
 vi ./src/interfaces/Controller.ts
+
 ```
 19
 ```
