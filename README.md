@@ -238,11 +238,11 @@ http://localhost:3000
 ```
 
 
-28
+28 (press ctrl-c to stop the application)
 ```
 cd ..
 ```
-29
+29 (go to your cloned snyk-apps-demo folder, or clone as below if not done)
 ```
 git clone https://github.com/snyk/snyk-apps-demo.git
 ```
