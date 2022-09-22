@@ -238,7 +238,7 @@ http://localhost:3000
 ```
 
 
-28 (press ctrl-c to stop the application)
+28 (press ctrl-c to stop the application) (you can run a snyk code test if you want!)
 ```
 cd ..
 ```
