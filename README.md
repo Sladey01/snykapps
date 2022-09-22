@@ -237,7 +237,9 @@ http://localhost:3000
 
 
 28
+```
 cd ..
+```
 29
 ```
 git clone https://github.com/snyk/snyk-apps-demo.git
